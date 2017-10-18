@@ -1,0 +1,168 @@
+<html>
+<head>
+    <title>هومینگ | بازدید مجازی</title>
+    <style>body {
+        margin: 0;
+    }
+
+    html, body {
+        background: #222;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+    .view {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .plane {
+        width: 120px;
+        height: 120px;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+    }
+
+    .plane.main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        -webkit-transform: rotateX(60deg) rotateZ(-30deg);
+        transform: rotateX(60deg) rotateZ(-30deg);
+        -webkit-animation: rotate 20s infinite linear;
+        animation: rotate 20s infinite linear;
+    }
+
+    .plane.main .circle {
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        border-radius: 100%;
+        box-sizing: border-box;
+        box-shadow: 0 0 60px #9b59b6, inset 0 0 60px #9b59b6;
+    }
+
+    .plane.main .circle::before, .plane.main .circle::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: 10%;
+        height: 10%;
+        border-radius: 100%;
+        background: #9b59b6;
+        box-sizing: border-box;
+        box-shadow: 0 0 60px 2px #9b59b6;
+    }
+
+    .plane.main .circle::before {
+        -webkit-transform: translateZ(-90px);
+        transform: translateZ(-90px);
+    }
+
+    .plane.main .circle::after {
+        -webkit-transform: translateZ(90px);
+        transform: translateZ(90px);
+    }
+
+    .plane.main .circle:nth-child(1) {
+        -webkit-transform: rotateZ(72deg) rotateX(63.435deg);
+        transform: rotateZ(72deg) rotateX(63.435deg);
+    }
+
+    .plane.main .circle:nth-child(2) {
+        -webkit-transform: rotateZ(144deg) rotateX(63.435deg);
+        transform: rotateZ(144deg) rotateX(63.435deg);
+    }
+
+    .plane.main .circle:nth-child(3) {
+        -webkit-transform: rotateZ(216deg) rotateX(63.435deg);
+        transform: rotateZ(216deg) rotateX(63.435deg);
+    }
+
+    .plane.main .circle:nth-child(4) {
+        -webkit-transform: rotateZ(288deg) rotateX(63.435deg);
+        transform: rotateZ(288deg) rotateX(63.435deg);
+    }
+
+    .plane.main .circle:nth-child(5) {
+        -webkit-transform: rotateZ(360deg) rotateX(63.435deg);
+        transform: rotateZ(360deg) rotateX(63.435deg);
+    }
+
+    @-webkit-keyframes rotate {
+        0% {
+            -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+        100% {
+            -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+            transform: rotateX(0) rotateY(0) rotateZ(0);
+        }
+        100% {
+            -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        }
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="icon" type="image/png" href="../static_assets/fav.png"/>
+</head>
+<body>
+<!-- When you're ready to deploy your app, update this line to point to your compiled client.bundle.js -->
+<script>
+    if (window.location.search.indexOf('estateId') < 0) {
+        document.body.innerHTML = `
+<div style="position: absolute;z-index: 999;width: 100%;height: 100%;background: black;">
+        <div class="view">
+             <div class="plane main">
+               <div class="circle"></div>
+               <div class="circle"></div>
+               <div class="circle"></div>
+               <div class="circle"></div>
+               <div class="circle"></div>
+               <div class="circle"></div>
+             </div>
+        </div>
+ <div style="position: absolute;left: 50%;top: 75%;transform: translate3d(-50%,-50%,0);color: #fff;font-family: cursive;text-transform: uppercase;text-align: center">
+      <span style="display: block">2017-present Homing.ir ALL RIGHTS RESERVED</span>
+      <span style="font-size: 0.5rem;">Powered By : Vrdreams.ir - Vyana.org </span>
+    </div>
+</div>
+        `;
+    }
+</script>
+<script src="./client.bundle?platform=vr"></script>
+<script>
+    // Initialize the React VR application
+    ReactVR.init(
+        // When you're ready to deploy your app, update this line to point to
+        // your compiled index.bundle.js
+        '../index.vr.bundle?platform=vr&dev=true',
+        // Attach it to the body tag
+        document.body
+    );
+</script>
+</body>
+</html>
+
